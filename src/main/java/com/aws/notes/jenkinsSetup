@@ -1,0 +1,20 @@
+# Jenkins setup on aws  ==> username -> Shailendra,password -> Shailodhi@123
+1.sudo wget -O /usr/share/keyrings/jenkins-keyring.asc https://pkg.jenkins.io/debian/jenkins.io-2023.key
+2.echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian binary/" | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
+3.sudo apt-get update
+4.sudo apt-get install openjdk-17-jre
+5.java -version
+5.sudo apt install maven -y
+6.sudo apt-get install jenkins
+7.sudo systemctl start jenkins
+8.sudo systemctl enable Jenkins
+9.sudo systemctl status jenkins
+=====>change Jenkins port
+1.sudo nano /etc/default/jenkins
+2.HTTP_PORT=9090
+1.sudo nano /usr/lib/systemd/system/jenkins.service
+2.ExecStart=/usr/bin/java -Djava.awt.headless=true -jar /usr/share/java/jenkins.war --webroot=/var/cache/jenkins/war --httpPort=9090
+3.sudo systemctl daemon-reload
+4.sudo systemctl restart jenkins
+5.sudo lsof -i :9090
+6. get password ==> sudo cat /var/lib/jenkins/secrets/initialAdminPassword                 a46b2d198dd949b8ae7809ed69b6c499

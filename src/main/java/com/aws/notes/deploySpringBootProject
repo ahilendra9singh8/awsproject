@@ -1,0 +1,10 @@
+1.sudo yum update -y
+2.Install java ==> sudo yum install java-17-amazon-corretto -y  # Install Java 17
+3.java -version
+4.clone ==> https://github.com/ahilendra9singh8/CalendarEvent.git
+5.Build ==> mvn clean package
+6.Run ==> nohup java -jar target/CalendarEvent-0.0.1-SNAPSHOT.jar > output.log 2>&1 &
+7.Check if the process is running ==> ps aux | grep java      
+output ==> ubuntu      2663  0.0  0.2   7076  2048 pts/1    S+   19:16   0:00 grep --color=auto java         PID==> 2663
+8.output.log ==> tail -f output.log
+9. stop ==> kill -9 <PID>

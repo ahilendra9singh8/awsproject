@@ -1,0 +1,44 @@
+1.Install Node.js (version 20.x)
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt install -y nodejs
+node -v
+npm -v
+2. Install Git
+sudo apt install git -y
+3.Create and Navigate to a Project Directory
+mkdir ~/ReactJProject
+cd ~/ReactJProject
+4.Clone the React Project from GitHub
+git clone https://github.com/ApogeeGNSSPvtLtd/registrations_and_subscriptions.git
+5.Navigate into project
+cd registrations_and_subscriptions
+6.Install Dependencies and Run the Project
+npm install
+npm run build
+npm start
+
+#Start react js project on server and its never stopped --> use pm2 for production
+1.Install pm2 globally:
+sudo npm install -g pm2
+2.Start your app with pm2: --> From inside your project directory (e.g. cd~/ReactJProject/registrations_and_subscriptions):
+pm2 start npm --name "registrations_and_subscriptions" -- start
+3.check status
+pm2 status
+4.(Optional) Save the pm2 process list:
+pm2 save
+5. Set up pm2 to auto-start on system reboot:
+pm2 startup
+6.check logs
+pm2 logs
+
+#Stopped project
+1.check about project
+pm2 list
+2.stop
+pm2 stop registrations_and_subscriptions
+(or)
+pm2 stop 0    (here 0 is id)
+3.Optional: To remove it completely from pm2:
+pm2 delete registrations_and_subscriptions
+
+
