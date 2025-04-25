@@ -8,7 +8,7 @@ sudo apt install git -y
 3.Create and Navigate to a Project Directory
 mkdir ~/ReactJProject
 cd ~/ReactJProject
-4.Clone the React Project from GitHub
+4.Clone the React Project from GitHub ==>
 git clone https://github.com/ApogeeGNSSPvtLtd/registrations_and_subscriptions.git
 5.Navigate into project
 cd registrations_and_subscriptions
@@ -41,4 +41,19 @@ pm2 stop 0    (here 0 is id)
 3.Optional: To remove it completely from pm2:
 pm2 delete registrations_and_subscriptions
 
-
+#Pull from Github
+1.Navigate to your project folder
+cd ~/ReactJProject/registrations_and_subscriptions
+2.Stop the current PM2 process
+pm2 stop registrations_and_subscriptions
+3.Pull the latest changes from GitHub
+git pull origin main
+4.Install any new dependencies (if added)
+npm install
+5.Rebuild the React app
+npm run build
+6.Restart the app using PM2
+pm2 restart registrations_and_subscriptions
+7.(Optional) Check PM2 status and logs
+pm2 status
+pm2 logs registrations_and_subscriptions
